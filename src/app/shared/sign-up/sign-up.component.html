@@ -1,0 +1,65 @@
+
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        
+      </div>
+      <div class="col-sm bg">
+        <div class="profile-authentication-area container">
+   
+            <div class="d-table">
+                <div class="d-table-cell">
+                    <div class="container">
+                        <div class="signup-form">
+                            <h2>créer un compte</h2>
+                            <form>
+                                <div class="form-group">
+                                   
+                                    <input type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" class="form-control rounded-left" placeholder="nom" required (focus)="ps=true" >
+                                    <div   *ngIf="ps && name.length === 0 name" class="alert alert-danger mt-2" role="alert">nom  vide.</div>
+                                </div>
+                                <div class="form-group">
+                                  
+                                    <input type="text" [(ngModel)]="last_name" [ngModelOptions]="{standalone: true}" class="form-control rounded-left" placeholder="prénom" required (focus)="p=true" >
+                                    <div   *ngIf="p && name.length === 0 name" class="alert alert-danger mt-2" role="alert">prénom vide.</div>
+                                </div>
+                                <div class="form-group">
+
+								<input type="text" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" class="form-control rounded-left" placeholder="Email" required (focus)="show=true">
+								<div   *ngIf="show && email.length === 0" class="alert alert-danger mt-2" role="alert">Email  vide.</div>
+								<div *ngIf="show && email.length > 0 && !emailRegex.test(email)" class="alert alert-danger mt-2" role="alert">Email invalide.</div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    
+						<input type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" class="form-control rounded-left" placeholder="Mot de passe" required (focus)="showAlert=true">
+						<div *ngIf="showAlert && password.length === 0" class="alert alert-danger mt-2" role="alert">
+						  Le mot de passe est vide.
+						</div>
+						<div *ngIf="showAlert && password.length > 0 && password.length < 6" class="alert alert-danger mt-2" role="alert">
+						  Le mot de passe doit comporter au moins 6 caractères.
+						</div>
+                                </div>
+                                
+                                <button   type="submit" (click)="register()">créer un compte </button>
+                                <br>
+                                <span class="dont-account">Vous avez déjà un compte? <a  (click)="onS()" >Connectez vous maintenant!</a></span>
+
+                                
+                            </form>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+      </div>
+      <div class="col-sm">
+ 
+      </div>
+    </div>
+  </div>
+
+  

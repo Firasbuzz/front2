@@ -1,0 +1,113 @@
+<!-- start navbar -->
+<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-white" id="navbar" (window:scroll)="windowScroll()">
+    <div class="container">
+        <a routerLink="/layout-one-5" class="navbar-brand">
+            <img src="assets/layout/images/logo-light.png" class="logo-light" alt="" height="22" />
+            <img src="assets/layout/images/logo-dark.png" class="logo-dark" alt="" height="22" />
+        </a>
+        <a href="javascript:void(0)" class="navbar-toggler" (click)="toggleMenu()" data-bs-toggle="collapse"
+            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggle-icon">
+                <i-feather name="menu"></i-feather>
+            </span>
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto navbar-center mt-lg-0 mt-2">
+                <li class="nav-item">
+                    <a class="nav-link" [ngClass]="{'active':currentSection === 'home'}" [ngxScrollTo]="'#home'"
+                        href="javascript: void(0);">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [ngClass]="{'active':currentSection === 'services'}" [ngxScrollTo]="'#services'"
+                        href="javascript: void(0);">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [ngClass]="{'active':currentSection === 'feature'}" [ngxScrollTo]="'#feature'"
+                        href="javascript: void(0);">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [ngClass]="{'active':currentSection === 'review'}" [ngxScrollTo]="'#review'"
+                        href="javascript: void(0);">Clients</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [ngClass]="{'active':currentSection === 'portfolio'}"
+                        [ngxScrollTo]="'#portfolio'" href="javascript: void(0);">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [ngClass]="{'active':currentSection === 'pricing'}" [ngxScrollTo]="'#pricing'"
+                        href="javascript: void(0);">Pricing</a>
+                </li>
+            </ul>
+            <a href="javascript:void(0);" [ngxScrollTo]="'#home'" class="btn btn-sm nav-btn text-primary mb-4 mb-lg-0">Build Yours
+                <i-feather name="chevrons-right" class="icon-xxs ms-1"></i-feather>
+            </a>
+        </div>
+    </div>
+    <!-- end container -->
+</nav>
+<!-- end navbar -->
+
+<div appScrollspy [spiedTags]="['SECTION']" (sectionChange)="onSectionChange($event)">
+    <!-- start hero -->
+    <section class="hero-one-5 position-relative overflow-hidden align-items-center justify-content-center d-flex"
+        id="home">
+        <div class="hero-one-5-overlay position-absolute top-0 end-0 bottom-0 start-0"></div>
+        <div class="hero-one-5-bg position-absolute top-0 end-0 bottom-0 start-0"
+            style="background-image: url(assets/layout/images/hero-one-5-bg.png);"></div>
+        <div class="container">
+            <div class="row justify-content-center align-items-center mt-5">
+                <div class="col-md-6">
+                    <div class="text-white">
+                        <h1 class="fw-medium mb-4 pb-2" style="white-space: pre-line">{{heading}}</h1>
+                        <div class="d-flex">
+                            <span>
+                                <i-feather name="thumbs-up" class="icon-xs d-inline-block me-1"></i-feather>
+                            </span>
+                            <div class="d-inline-block ms-2">
+                                <a class="align-middle fw-normal text-white fs-18">{{sub_title}}</a>
+                                <p class="text-white-50 my-2">{{contents}}</p>
+                                <a href="javascript:void(0);" [ngxScrollTo]="'#home'"
+                                    class="fw-medium align-middle text-white">Learn
+                                    More <i-feather name="chevrons-right" class="icon-xs"></i-feather></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mt-sm-0 mt-5">
+                    <div class="position-relative">
+                        <img class="rounded img-fluid mx-auto d-block" src="assets/layout/images/hero-one-5-img.jpg"
+                            alt="" />
+                        <div class="play-box" data-bs-toggle="modal" data-bs-target="#watchvideomodal">
+                            <a href="javascript: void(0);" class="video-button bg-white text-primary"
+                                (click)="openModal(content)">
+                                <i-feather name="video" class="bg-white text-primary d-inline-block"></i-feather>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Modal -->
+                    <ng-template #content let-modal>
+                        <div class="video-popup">
+                            <div class="modal-body p-0">
+                                <button type="button" class="btn-close" aria-label="Close"
+                                    (click)="modal.dismiss('Cross click')">
+                                </button>
+                                <youtube-player [videoId]="id" (ready)="savePlayer($event)"
+                                    (change)="onStateChange($event)">
+                                </youtube-player>
+                            </div>
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+        <!-- end container -->
+    </section>
+    <!-- end hero -->
+    <app-services></app-services>
+    <app-features></app-features>
+    <app-client></app-client>
+    <app-portfolio></app-portfolio>
+    <app-pricing></app-pricing>
+    <app-contact></app-contact>
+    <app-footer></app-footer>
+</div>

@@ -1,0 +1,110 @@
+<!-- start navbar -->
+<nav class="navbar navbar-expand-lg fixed-top navbar-light border-bottom-0" id="navbar"
+    (window:scroll)="windowScroll()">
+    <div class="container">
+        <a routerLink="/layout-two-2" class="navbar-brand me-5">
+            <img src="assets/layout/images/ccc.png" class="logo-light" alt="" height="80" />
+            <img src="assets/layout/images/ccc.png" class="logo-dark" alt="" height="80" />
+        </a>
+        <button (click)="toggleMenu()" class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation"><span class="navbar-toggle-icon">
+                <i-feather name="menu"></i-feather>
+            </span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" [ngClass]="{'active':currentSection === 'home'}" [ngxScrollTo]="'#home'"
+                        href="javascript: void(0);">Acceuil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [ngClass]="{'active':currentSection === 'services'}" [ngxScrollTo]="'#services'"
+                        href="javascript: void(0);">Séminaire</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [ngClass]="{'active':currentSection === 'feature'}" [ngxScrollTo]="'#feature'"
+                        href="javascript: void(0);">  </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [ngClass]="{'active':currentSection === 'review'}" [ngxScrollToOffset]="5" [ngxScrollTo]="'#review'"
+                        href="javascript: void(0);">à propos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [ngClass]="{'active':currentSection === 'historique'}" [ngxScrollToOffset]="6" [ngxScrollTo]="'#historique'"
+                        href="javascript: void(0);">gallery</a>
+                </li>
+            </ul>
+            <a href="javascript:void(0);" class="btn btn-sm nav-btn text-primary mb-4 mb-lg-0 ms-auto" data-bs-toggle="modal"
+                data-bs-target="#exampleModal" (click)="openModal(content)">Contactez-nous</a>
+                <a href="javascript:void(0);" class="btn btn-sm nav-btn text-primary mb-4 mb-lg-0 ms-auto" data-bs-toggle="modal"
+                data-bs-target="#exampleModal2" (click)="change()" (click)="openModal(aa)">connexion</a>
+        </div>
+    </div>
+    <!-- end container -->
+</nav>
+<!-- end navbar -->
+<!-- Modal -->
+<ng-template #content let-modal>
+    <div class="contact_form">
+        <div class="modal-header home-modal">
+            <h5 class="modal-title" id="exampleModalLabel">contacter</h5>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            </button>
+        </div>
+        <app-faq></app-faq>
+    </div>
+</ng-template>
+
+<ng-template #aa let-modal>
+    <div class="contact_form">
+        <div class="modal-header home-modal">
+            <h5  *ngIf="ok" class="modal-title" id="exampleModalLabel">connexion</h5>
+            <h5 *ngIf="!ok" class="modal-title" id="exampleModalLabel">S'inscrire</h5>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            </button>
+        </div>
+        <div class="modal-body">
+            <form method="post" name="myForm" onsubmit="return validateForm()">
+                <span id="error-msg"></span>
+                <app-login *ngIf="ok" onOkChanged (okChanged)="onOkChanged($event)"></app-login>
+                <app-sign-up *ngIf="!ok" onOkChanged (okChanged)="onOkChanged($event)"></app-sign-up>
+                <!-- end row -->
+            </form>
+        </div>
+    </div>
+</ng-template>
+
+<div appScrollspy [spiedTags]="['SECTION']" (sectionChange)="onSectionChange($event)">
+    <!-- start hero -->
+    <section class="hero-two-2 bg-primary position-relative overflow-hidden align-items-center d-flex" id="home"
+        style="background-image: url(assets/layout/images/hero-two-2-bg.jpg);">
+        <div class="hero-two-2-overlay position-absolute top-0 end-0 bottom-0 start-0"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="hero-two-2-content">
+                        <h1 class="text-dark display-3 fw-light mb-5">
+                            {{heading}}
+                        </h1>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end container -->
+    </section>
+    <!-- end hero -->
+    <app-services2></app-services2>
+    
+    <app-client2></app-client2>
+    <app-client></app-client>
+    
+    
+    <app-footer></app-footer>
+    
+  
+</div>
+
+
+

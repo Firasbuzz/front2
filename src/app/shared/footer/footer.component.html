@@ -1,0 +1,90 @@
+<!-- start footer -->
+<footer class="footer bg-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-sm-6">
+                <a routerLink="/layout-one-1">
+                    <img src="assets/layout/images/ccc.png" alt="" height="150" />
+                </a>
+                <br><br>
+               
+            </div><div class="col-lg-2 col-sm-6">
+                <iframe  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.2737076847557!2d10.08851111480899!3d33.88260403409895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12556fd072bb7d73%3A0xdc9b1323c10fd56f!2sInstitut%20sup%C3%A9rieur%20de%20Gestion!5e0!3m2!1sfr!2stn!4v1679577233140!5m2!1sfr!2stn" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div style="margin-right:50px;" class="col-lg-3 offset-lg-2 col-sm-6">
+                <h6 class="text-white mb-4 mt-sm-0 mt-5">institut</h6>
+                
+                <ul class="list-unstyled footer-list">
+                    <li><a >
+                        Rue Jilani Habib 6002 Gabès Tunisie</a></li>
+                    <li><a [ngxScrollTo]="'#home'" href="javascript: void(0);">+216 75 272 281</a></li>
+                    <li><a [ngxScrollTo]="'#home'" href="javascript: void(0);">+216 75 270 686</a></li>
+                    <li><a [ngxScrollTo]="'#home'" href="javascript: void(0);">isggb@isggb.run.tn</a></li>
+                </ul>
+            </div>
+            
+            
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</footer>
+<!-- end footer -->
+
+<!-- start footer alter -->
+<div class="footer-alt bg-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <p>{{cur_year}} © ISG. Created by firasBesalah</p>
+            </div>
+            <div class="col-sm-6 text-sm-end">
+                <ul class="list-unstyled footer-alt-list mb-0 mt-sm-0 mt-3">
+                    <li class="list-inline-item">
+                        <a href="https://www.facebook.com/profile.php?id=100027461066270" [ngxScrollTo]="'#home'">
+                            <i-feather name="facebook" class="icon-xs"></i-feather>
+                        </a>
+                    </li>
+                   
+                
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</div>
+<!-- end footer alter -->
+
+<div id="style-switcher" [style]="isVisible ? 'left: 0px' : 'left: -189px'">
+    <div>
+        <h3>Select your color </h3>
+        <ul class="pattern">
+            <li>
+                <a (click)="setTheme('default')" class="color1" href="javascript:void(0);"></a>
+            </li>
+            <li>
+                <a class="color2" (click)="setTheme('success')" href="javascript:void(0);"></a>
+            </li>
+            <li>
+                <a class="color3" (click)="setTheme('warning')" href="javascript:void(0);"></a>
+            </li>
+            <li>
+                <a class="color4" (click)="setTheme('danger')" href="javascript:void(0);"></a>
+            </li>
+            <li>
+                <a class="color5" (click)="setTheme('info')" href="javascript:void(0);"></a>
+            </li>
+            <li>
+                <a class="color6" (click)="setTheme('amber')" href="javascript:void(0);"></a>
+            </li>
+        </ul>
+    </div>
+    <div class="bottom">
+        <a href="javascript: void(0);" class="settings rounded-end text-white" (click)="toggleSwitcher()">
+            <i-feather name="droplet"></i-feather>
+        </a>
+    </div>
+</div>
+<!-- end Style switcher -->

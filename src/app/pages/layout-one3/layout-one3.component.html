@@ -1,0 +1,95 @@
+<!-- start navbar -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top sticky" id="navbar" (window:scroll)="windowScroll()">
+    <div class="container">
+        <a routerLink="/layout-one-3" class="navbar-brand">
+            <img src="assets/layout/images/logo-light.png" class="logo-light" alt="" height="22" />
+            <img src="assets/layout/images/logo-dark.png" class="logo-dark" alt="" height="22" />
+        </a>
+        <a href="javascript:void(0)" class="navbar-toggler" (click)="toggleMenu()" data-bs-toggle="collapse"
+            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggle-icon">
+                <i-feather name="menu"></i-feather>
+            </span>
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto navbar-center mt-lg-0 mt-2">
+                <li class="nav-item">
+                    <a class="nav-link" [ngClass]="{'active':currentSection === 'home'}" [ngxScrollTo]="'#home'"
+                        href="javascript: void(0);">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [ngClass]="{'active':currentSection === 'services'}" [ngxScrollTo]="'#services'"
+                        href="javascript: void(0);">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [ngClass]="{'active':currentSection === 'feature'}" [ngxScrollTo]="'#feature'"
+                        href="javascript: void(0);">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [ngClass]="{'active':currentSection === 'review'}" [ngxScrollTo]="'#review'"
+                        href="javascript: void(0);">Clients</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [ngClass]="{'active':currentSection === 'portfolio'}"
+                        [ngxScrollTo]="'#portfolio'" href="javascript: void(0);">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [ngClass]="{'active':currentSection === 'pricing'}" [ngxScrollTo]="'#pricing'"
+                        href="javascript: void(0);">Pricing</a>
+                </li>
+            </ul>
+            <a href="javascript:void(0);" [ngxScrollTo]="'#home'" class="btn btn-sm nav-btn text-primary mb-4 mb-lg-0">Build Yours
+                <i-feather name="chevrons-right" class="icon-xxs ms-1"></i-feather>
+            </a>
+        </div>
+    </div>
+    <!-- end container -->
+</nav>
+<!-- end navbar -->
+
+<div appScrollspy [spiedTags]="['SECTION']" (sectionChange)="onSectionChange($event)">
+    <!-- start hero -->
+    <section class="hero-one-3 justify-content-center position-relative overflow-hidden" id="home"
+        style="background-image: url(assets/layout/images/hero-one-3-bg.png);">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 mb-5">
+                    <owl-carousel-o [options]="customOptions" class="carousel slide text-center home-carousel">
+                        <ng-template carouselSlide *ngFor='let value of contentData'>
+                            <div class="carousel-item mt-1 active">
+                                <div class="hero-one-3-content text-center">
+                                    <span
+                                        class="badge-lg bg-soft-primary text-primary text-uppercase rounded">{{value.sub_title}}</span>
+                                    <h1 class="fw-light hero-title my-4">{{value.title}}</h1>
+                                    <p class="fs-16 text-muted" style="white-space: pre-line">{{value.content}}</p>
+                                    <a href="javascript:void(0);" [ngxScrollTo]="'#home'"
+                                        class="btn btn-outline-primary mt-4">Discover
+                                        more</a>
+                                    <a href="javascript:void(0);" [ngxScrollTo]="'#home'" class="btn btn-primary ms-2 mt-4"
+                                        [ngStyle]="{'display':value.title === 'To Grow Business' ? 'none' : '' }">Contact
+                                        us</a>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </owl-carousel-o>
+                </div>
+            </div>
+        </div>
+        <!-- end container -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 hero-one-3-bottom p-0 position-absolute end-0 bottom-0 start-0">
+                    <img class="img-fluid d-block w-100" src="assets/layout/images/hero-one-3-bottom-img.png" alt="" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end hero -->
+    <app-services></app-services>
+    <app-features></app-features>
+    <app-client></app-client>
+    <app-portfolio></app-portfolio>
+    <app-pricing></app-pricing>
+    <app-contact></app-contact>
+    <app-footer></app-footer>
+</div>

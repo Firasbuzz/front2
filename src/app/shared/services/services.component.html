@@ -1,0 +1,31 @@
+<!-- start services -->
+<section class="section" id="services">
+    <div class="container">
+        <div class="row justify-content-center mb-4">
+            <div class="col-lg-8 text-center">
+                <h2 class="fs-3 fw-medium lh-1 text-dark mb-3">{{heading}}</h2>
+                <p class="text-muted">
+                    {{content}}
+                </p>
+            </div>
+        </div>
+        <!-- end row -->
+        <div class="row">
+            <div *ngFor="let value of serviceList" class="col-lg-4 col-md-6 mt-4 pt-2  service-list">
+                <div class="card rounded service-box-one border"
+                    [ngClass]=" { 'active': value.title === 'Dynamic Growth' }">
+                    <div class="card-body p-4 m-2">
+                        <i-feather name="{{value.icon}}" class="icon-xl service-icon sw-1"></i-feather>
+                        <h5 class="service-title fs-18 my-4">{{value.title}}</h5>
+                        <p class="service-subtitle pb-4">{{value.content}}</p>
+                        <a class="fw-medium align-middle" href="/layout-one-1">Learn More <i-feather
+                                name="chevrons-right" class="icon-xs"></i-feather> </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end row -->
+    </div>
+    <!-- end container -->
+</section>
+<!-- end services -->

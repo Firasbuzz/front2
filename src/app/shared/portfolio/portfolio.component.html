@@ -1,0 +1,22 @@
+<!-- start counter -->
+<section class="section" style="background-image: url(assets/layout/images/counterbg.jpg); background-position: center;"
+    id="portfolio">
+    <div class="bg-overlay position-absolute top-0 end-0 bottom-0 start-0"></div>
+
+    <div class="container">
+        <div class="row" id="counter">
+            <div *ngFor="let value of portfolioList" class="col-sm-3 col-6">
+                <div class="text-white text-center my-sm-0 my-5">
+                    <img class="img-fluid mb-4" src="{{value.image}}" alt="" />
+                    <h3 class="mb-2"><span class="counter_value" [CountTo]="value.count" [from]="0"
+                            [duration]="1"></span><sup>+</sup></h3>
+                    <h4 class="fw-light fs-18">{{value.title}}</h4>
+                </div>
+            </div>
+        </div>
+        <!-- end row -->
+    </div>
+
+    <!-- end container -->
+</section>
+<!-- end counter -->

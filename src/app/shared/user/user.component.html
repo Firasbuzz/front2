@@ -1,0 +1,124 @@
+ <body>
+  
+
+ <div id="mySidenav" class="sidenav" [ngClass]="status ? 'active' : 'inactive'">
+    <p class="logo"><span>S</span><b [ngClass]="status ? 'hidden' : 'visible'">-ISG</b></p>
+    <a routerLink="/user" class="icon-a"><i class="fa fa-list icons"></i>   <span [ngClass]="status ? 'hidden' : 'visible'">inscription</span></a>
+    <a routerLink="/userC"class="icon-a"><i class="fa fa-user icons"></i>   <span [ngClass]="status ? 'hidden' : 'visible'">Paramètres du compte</span></a>
+  
+    
+    
+  
+  </div>
+  <div id="main" [ngClass]="status ? 'fullw' : 'smallw'">
+  
+    <div class="head">
+      <div class="col-div-6">
+  <span style="font-size:30px;cursor:pointer; color: white;" class="nav"  (click)="addToggle()">&#9776; inscription</span>
+  <span style="font-size:30px;cursor:pointer; color: white;" class="nav2"  (click)="addToggle()">&#9776; inscription</span>
+  </div>
+    
+    <div class="col-div-6">
+    <div class="profile">
+  
+      
+      <div class="row">
+        <div class="col-6">
+        <img src="../assets/images/User.png" class="pro-img" />
+        <p>{{n}} </p>
+      </div><div style="margin-left:30px ;" class="col-3 ml-5" ><button (click)="close()" type="button" style="background-color: transparent; border:transparent;" class="rounded-button"  ><img style="width: 50px;height: 50px;"  src="../assets/images/logout.png" alt=""></button></div></div>
+      
+      
+    </div>
+    
+  </div>
+    <div class="clearfix"></div>
+  </div>
+  
+    <div class="clearfix"></div>
+  
+    
+    
+    
+    <div class="clearfix"></div>
+    <br/>
+    <div class="col-div-8">
+      <div class="box-8">
+      <div class="content-box">
+        <p>Séminaire </p>
+        <br/>
+        <div>
+        
+        <br><br>
+        <h1></h1>
+        <form class="text-center border border-light p-5">
+          <select class="browser-default custom-select form-control mb-4" [(ngModel)]="Sid" [ngModelOptions]="{standalone: true}" (change)="Select()">
+            <option value="" selected>Liste Séminaire</option>
+            <option *ngFor="let seminaire of seminaireList;"  value={{seminaire._id}}>{{seminaire.name }} </option>
+          
+           
+          </select> 
+       
+          <!-- Name -->
+          <input type="text" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" id="defaultSubscriptionFormPassword" class="form-control mb-4" placeholder="Nom">
+          <input type="text" [(ngModel)]="last" [ngModelOptions]="{standalone: true}" id="defaultSubscriptionFormPassword" class="form-control mb-4" placeholder="Pérnom">
+          <!-- Email -->
+          <input type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" id="defaultSubscriptionFormEmail" class="form-control mb-4" placeholder="E-mail">
+          <!-- Sign in button -->
+          
+          <input type="text" [(ngModel)]="paiement" [ngModelOptions]="{standalone: true}" id="defaultSubscriptionFormPassword" class="form-control mb-4" placeholder="Justificatif de paiement">
+          <input type="text" [(ngModel)]="Adresse" [ngModelOptions]="{standalone: true}" id="defaultSubscriptionFormPassword" class="form-control mb-4" placeholder="Adresse">
+          <input type="text" [(ngModel)]="num" [ngModelOptions]="{standalone: true}" id="defaultSubscriptionFormPassword" class="form-control mb-4" placeholder="numéro de téléphone">
+          
+          <select class="browser-default custom-select form-control mb-4" [(ngModel)]="participation" [ngModelOptions]="{standalone: true}" >
+            <option selected>Participation</option>
+            <option value="presentiel">presentiel</option>
+            <option  value="online">online</option>
+          </select>
+          
+          <select [ngModelOptions]="{standalone: true}" class="browser-default custom-select form-control mb-4" *ngIf="participation === 'presentiel'" [(ngModel)]="role">
+            <option [value]="'Role'" selected>Role</option>
+            <option [value]="'Spectateur'">Spectateur</option>
+            <option [value]="'Présentateur'">Présentateur</option>
+          </select>
+          <input *ngIf="role==='Présentateur'" style="margin-left: 30px" class="btn btn-primary"
+            type="file"
+            accept="image/*"
+            (change)="onFileChangepdf($event)" accept="application/pdf">
+          <br>
+          <br>
+          <button (click)="inscrire()" class="btn btn-primary" mdbBtn style="margin-right: 50px;" color="info" block="true" type="submit">Inscrit</button>
+        </form>
+        
+      </div>
+      </div>
+    </div>
+    </div>
+  
+    <div class="col-div-4">
+      <div class="box-4">
+      <div class="content-box">
+        <p>Inscrit </p>
+  
+     <table>
+      <tr>
+        <th>
+        Séminaire
+        </th>
+        <th>
+          Statut
+        </th>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+
+        </td>
+      </tr>
+     </table>
+      </div>
+    </div>
+    </div>
+      
+    <div class="clearfix"></div>
+  </div> </body>
